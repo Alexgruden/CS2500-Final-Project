@@ -1,0 +1,151 @@
+customer_id,first_name,last_name,email,phone_number,address,date_of_birth
+1,Tim,Nichols,michael66@gmail.com,957.641.8032x07710,"5647 Brandon Falls Suite 375, Colemanville, LA 27737",1944-04-13
+2,Amy,Nguyen,richard82@gmail.com,548-023-2565x31068,"1587 Lin Meadows Apt. 232, Palmerland, DC 71323",1999-05-22
+3,Brianna,Perez,daltonlopez@smith.com,741-119-7307,"1341 Mcdonald Hollow, Joyfort, MS 24509",1967-01-14
+4,Natalie,Sanchez,johnlewis@patterson.com,+1-631-217-3851x64772,"0795 Loretta Turnpike Apt. 880, Hartmanville, MO 07527",1985-07-02
+5,Kimberly,Forbes,christine56@gmail.com,001-048-161-1813x070,"600 John Club Apt. 589, Vanessabury, KS 24696",2003-06-18
+6,Brenda,Humphrey,andersonwilliam@yahoo.com,843.167.9405x9526,"USS Moore, FPO AE 23279",1946-09-05
+7,Alice,Chase,ryancarter@thomas-tucker.net,001-737-677-8105x783,"10150 Pamela Green Apt. 961, Port Jamesmouth, CO 82040",1966-06-23
+8,Lori,Meyer,tgonzales@gordon-adams.org,403.071.5359,"16774 Watson Plains, Michaelview, CO 86581",1945-10-16
+9,Bruce,Fritz,kevin77@hotmail.com,001-040-247-4612x8752,"15402 Lester Prairie, Shieldsmouth, AZ 76265",1942-03-05
+10,Mark,Brandt,qbrooks@wheeler.com,9441079794,"USNV Clayton, FPO AA 10098",1992-11-18
+11,Steven,Cabrera,jennifer39@yahoo.com,959-288-5022x330,"652 Carter Place, East Morganburgh, VT 60526",2003-10-27
+12,Victoria,Bell,janet73@gmail.com,393-397-5410x1632,"95785 Lewis Vista Suite 375, Hernandezside, NM 06370",1993-11-14
+13,Caleb,Horn,steinsteven@harris-robbins.net,+1-249-071-3013x8372,"3963 Davis Union Suite 233, Dorothychester, NE 65771",1996-09-06
+14,James,Henderson,sharon05@medina.com,(571)775-5654x962,"PSC 4170, Box 4302, APO AA 31443",1953-07-30
+15,Gabriel,Moore,qrichardson@yahoo.com,(115)697-4153x5148,"47796 Hill Burgs Suite 674, Josebury, AR 15423",1985-07-23
+16,Cheyenne,Barrera,johnsonjohn@rice-gordon.net,132-073-4605x29458,"50386 Michelle Motorway Apt. 396, Lake Philip, ND 89165",1953-04-23
+17,Geoffrey,Lopez,stephaniehill@gmail.com,+1-971-974-1724x5433,"78045 Anderson Expressway Suite 167, Christopherland, IL 90561",1948-05-09
+18,Steven,Lewis,deanjasmine@yahoo.com,(008)584-2902x4000,"278 Emily Forges Suite 726, Yvonneborough, TN 66513",1968-11-20
+19,John,Flowers,markanderson@richmond.org,001-245-674-9694x27170,"5947 Holt Passage, North Thomas, NV 33889",1979-03-10
+20,Kimberly,Villegas,sklein@stephens.com,(140)939-9265,"4416 Tina Mews, Port Matthewside, NE 13052",1935-09-16
+21,Sandra,Wise,chrisshepherd@beard-mccormick.com,4976613934,"0202 Alyssa Springs Apt. 929, North Ricky, NC 66944",1942-05-31
+22,Andrew,Shannon,grahamashley@moon.com,001-944-031-1236,"37160 Ortega Ridges Apt. 033, South Kristin, MI 35112",1942-12-10
+23,Jennifer,Hawkins,michael15@hotmail.com,001-316-851-9134x0930,"45327 Amanda Dale Suite 822, North Carlshire, WY 73111",1974-09-21
+24,Rebecca,Chan,ljackson@morris.org,562.020.5814x049,"709 Stewart Club, North Chelsea, KS 30415",1948-03-22
+25,Jason,Stevens,garciaadam@gmail.com,(192)117-3781x649,"90149 Amber Key, Hernandezton, IN 11937",1968-12-31
+26,Taylor,Thomas,jamesrobertson@stevenson.net,001-834-371-4986x21843,"Unit 2007 Box 2967, DPO AE 47186",1986-11-30
+27,Linda,James,xramos@hotmail.com,001-692-553-6148x26417,"444 Smith Forest Apt. 123, New Wendymouth, GA 21775",1992-01-21
+28,Jose,Wright,sharonware@gmail.com,448.245.7569x064,"179 Hill Crossroad, South Lisa, NH 84818",1977-12-29
+29,Teresa,Clark,amyblackwell@rios.com,308.368.6486,"3594 Parker Estates, Scottside, MT 91986",1953-03-23
+30,Angela,Booker,patricia26@carney-garcia.biz,3659182422,"6484 Rachel Mountain Apt. 415, Gordonchester, CO 41604",1997-02-27
+31,Daniel,Murphy,michaelfernandez@carpenter.org,215.795.3026x8672,"53454 Harris Prairie Suite 061, Jaredstad, PA 41830",1986-04-25
+32,Kelly,Mclaughlin,meagancarney@robinson-koch.org,6575257074,"4666 Donald Park, Kaufmanshire, CT 32309",1954-11-08
+33,Jesse,Woods,brittanyallen@jimenez-miller.com,+1-239-053-0961x289,"80668 Simmons Flat, Christopherfort, OR 80132",1955-03-07
+34,Teresa,Lindsey,daughertytyler@vargas.com,(271)942-1882,"448 Kelley Crossroad Apt. 691, New Brentport, MN 60331",1950-05-10
+35,Jacqueline,Padilla,annwatson@brooks.com,001-399-592-3167x76430,"886 Kennedy Island Apt. 620, Dianashire, DE 08410",2004-01-04
+36,Jacob,Mckinney,travismoore@hotmail.com,848-799-9880,"13467 Cassidy Common, Hardyhaven, IN 31387",1991-02-27
+37,Rebecca,Weeks,ndavis@hotmail.com,0367488401,"099 Combs Trail, Whiteville, VA 24977",1934-10-20
+38,Michael,Johnson,stanleyrosales@yahoo.com,381-635-1402x57495,"PSC 1830, Box 1954, APO AE 55580",1964-08-08
+39,Tanya,Hansen,wendyross@gmail.com,627.095.7604,"110 Smith Dale, Port Brianstad, RI 07131",1992-10-15
+40,Danielle,Sharp,sellersamber@yahoo.com,2645750376,"578 Whitney Prairie, Lake Janiceburgh, ND 06900",1949-08-18
+41,Juan,Hernandez,ashley89@evans.com,(952)018-5298x16926,"68899 Munoz Shoals Apt. 351, New Jameschester, AR 07230",1954-01-23
+42,Christina,Moore,kylejacobs@wilson-ramirez.com,001-541-233-7862,"05055 Ronald Mount, New Jacquelineview, WI 97929",1995-03-09
+43,Karen,Roberts,pearsonjerry@davis.com,414-224-7591,"991 Thomas Meadow Apt. 965, Yvetteburgh, WA 18944",1968-09-01
+44,Dana,Murphy,crystalbeltran@montes.com,+1-319-074-9053x386,"92433 Connie Neck Apt. 909, New Diane, UT 17383",1970-01-30
+45,Crystal,Hampton,justinrichmond@parker.org,(018)593-5670,"353 Cardenas Turnpike Suite 442, Lake Ryantown, TX 06010",1949-03-09
+46,Sean,Garcia,rebeccanielsen@hotmail.com,2911405209,"94923 Wood Glen, South Jameshaven, TN 65526",1955-03-03
+47,Kara,White,amanda99@gmail.com,(293)041-4214x87368,"12706 Montgomery Islands Apt. 101, Reyesport, SD 44031",1976-04-13
+48,Isaac,Green,byoung@yahoo.com,+1-872-808-5040,"6338 Anne Ford Apt. 397, New Jeanetteville, WI 89720",1950-01-02
+49,Tanya,Palmer,clarkkevin@hotmail.com,(588)406-0499x307,"429 Michelle Islands, Lewisville, WI 39438",1976-03-13
+50,Amber,Finley,jli@gray.com,+1-494-920-0579x9852,"777 Padilla Glens, Mcclainville, KS 01386",1944-04-13
+51,Victoria,Harris,mwiley@hotmail.com,285.519.7323x0873,"PSC 2115, Box 5531, APO AE 57664",1963-09-02
+52,Michael,Simmons,heather41@bartlett.org,+1-135-514-9282x342,"098 Ramos Turnpike Apt. 559, Lake Jonathanstad, AL 04408",2005-11-07
+53,Anne,Lopez,williamwaller@yahoo.com,(153)850-7886x889,"463 White Crescent Suite 309, North Lisafurt, NJ 56767",1954-07-05
+54,Rebecca,Nelson,alopez@gmail.com,339-147-3748,"6966 Derek Overpass, Lambertshire, AL 42429",1995-03-11
+55,Jessica,Mclean,fblake@gmail.com,263.748.3950,"30335 Snyder Junctions Suite 271, Foleyshire, AZ 00657",1994-05-29
+56,Joshua,Coleman,stephenarnold@hotmail.com,320.525.5717,"719 Johnny Junction Suite 572, West Ryanfurt, IA 40789",1968-09-20
+57,Ruth,Rivers,cwilson@shaw.com,+1-516-806-8240x84437,"49760 Rodriguez Key, East Jennifer, UT 24966",1937-10-24
+58,Jack,Hammond,matthew19@johnson.com,001-437-101-6486x9564,"27176 Higgins Run, Lemouth, IN 30256",1973-10-08
+59,Yolanda,Weber,johngamble@hensley.com,236.408.0237,"1950 James Cove, Lowefurt, AK 77760",1962-06-28
+60,Brian,Gonzalez,lisataylor@hotmail.com,(752)080-3513x2918,"58691 Smith Mission Suite 239, Kingbury, MO 46181",1952-07-30
+61,Peter,Robinson,jeremy45@munoz-baker.com,(681)826-3559x3297,"65684 Salazar Fort Suite 117, Pamelahaven, NC 87547",1978-01-04
+62,Justin,Hull,ninaaguilar@cardenas-rojas.info,062-889-8092,"910 Omar Loaf, Gomezmouth, VA 39178",1947-02-11
+63,Stephen,Howell,gibsondylan@sellers.com,160-156-5635x37711,"97590 Woods Ranch, South Jose, MA 59066",1959-02-09
+64,Shirley,Chambers,rebecca83@smith-hughes.info,001-289-343-6334,"4244 Graves Highway, South Curtisborough, IA 29741",1980-05-18
+65,Joseph,Mcdonald,bakermatthew@gmail.com,7094512926,"814 Paul Viaduct Suite 103, Crystalport, CA 46465",1966-08-02
+66,Dakota,King,medinaangela@hernandez.com,+1-647-064-8294,"63464 Hannah Course Suite 310, New Donaldfort, AL 59197",1952-08-28
+67,Nancy,Horton,jonesryan@yahoo.com,680-937-0806x59574,"USNS Brown, FPO AA 16601",1974-10-04
+68,James,George,timothy40@yahoo.com,9487647674,"576 Jill Mission Apt. 923, South Jennifermouth, KY 34086",1971-01-26
+69,Tiffany,Howard,steven04@reyes.com,726.317.2893,"Unit 2749 Box 3841, DPO AA 60865",1940-02-13
+70,Jeffrey,Willis,pamela31@erickson.info,183-575-3054,"26416 Kenneth Lodge Apt. 133, Brownborough, AR 42237",1959-05-20
+71,Ryan,Smith,banderson@gmail.com,(109)706-0771x693,"533 Abigail Cove, New Perryhaven, MO 18896",2003-07-18
+72,Cody,Cochran,wilkinsonsharon@gmail.com,733.244.3971,"USCGC Smith, FPO AE 59566",1973-02-07
+73,Danielle,Robinson,dennislee@hotmail.com,089-668-0979,"Unit 0584 Box 4614, DPO AA 27976",1984-04-04
+74,David,Chavez,fstone@parker.info,001-689-599-1044x55796,"3293 Bryce Prairie, Bethview, NM 60202",2001-03-31
+75,Mandy,Ortega,jenkinspatricia@gmail.com,(610)111-2765,"378 Alyssa Estate Suite 835, West Rhondaborough, WY 69370",1954-05-16
+76,Brittany,Mcdowell,manuelmcdonald@yahoo.com,361-000-2858,"061 Jimmy Parks, Carlsonfurt, WV 54639",1972-02-25
+77,Denise,Barber,gcrane@yahoo.com,(970)683-9494,"25059 Christy Wells, Scottshire, CT 27441",1953-09-22
+78,Brittany,Long,john05@gmail.com,+1-168-528-0178,"3596 Howard Shore Suite 233, West Jennifer, GA 97076",1958-03-11
+79,Edward,King,xvargas@benson-barrera.com,8953958445,"3461 David Divide Suite 529, Codytown, DC 16320",1955-08-17
+80,Justin,Mason,williamsbenjamin@hotmail.com,001-977-301-1886x087,"PSC 9640, Box 2731, APO AE 47836",1956-02-23
+81,Michael,Reynolds,jasminecannon@johnson.com,(260)083-2259x614,"70625 Bell Neck, West Joshua, TN 87904",1999-10-21
+82,Andrew,Estrada,kellywright@hall.com,3486406430,"72211 Nelson Row Apt. 150, Parrishmouth, ND 18603",1984-02-14
+83,Cheryl,Payne,wkrueger@gmail.com,(323)976-1794,"2669 Jessica Parkways, North Beverlyfurt, MN 93269",2001-01-20
+84,Mary,Church,bthomas@hotmail.com,(845)450-1364,"792 Rodriguez Field, Sheriborough, DE 83367",1989-03-21
+85,Christian,Lopez,vgonzales@duarte.com,001-767-177-2185x68122,"95185 Heidi Crescent Apt. 510, New Paulville, NJ 77558",2002-12-31
+86,Monica,Ford,phelpselizabeth@noble.com,+1-221-611-0401,"191 Cindy Squares Apt. 548, Garciabury, CO 40083",1996-06-24
+87,Sally,Murphy,abigailmartin@yahoo.com,472-971-6652x5612,"588 Bowen Keys Apt. 088, East Jesse, RI 67131",1957-04-10
+88,Thomas,Price,allison05@brown.com,499.463.1890,"24046 Melissa Locks, Sydneymouth, WV 77000",1991-12-10
+89,Amber,Miller,lgolden@yahoo.com,001-628-850-2958x5261,"Unit 9687 Box 5969, DPO AE 03349",1938-08-15
+90,Robin,Williams,andrewduncan@hendrix.info,(293)914-6086x6433,"1706 Luis Mountains, Geneton, VA 56654",1940-09-02
+91,Lindsay,Zavala,weberlacey@yahoo.com,+1-903-914-5104x28215,"9309 Amanda Drive, Crystalview, NC 48897",2006-11-18
+92,Lisa,West,katherine47@yahoo.com,001-722-192-0607x414,"01621 Robert Motorway Apt. 787, North Amy, CT 82189",1952-02-02
+93,Steve,Hicks,beverlyhernandez@yahoo.com,595-671-9576x599,"8505 Joshua Mountain, North Christopherfurt, AZ 70635",2000-01-23
+94,Matthew,Wyatt,zmoran@tucker-massey.net,003-127-5484,"15202 Salinas Tunnel Suite 649, South Brandonview, CA 53722",1946-04-06
+95,Jennifer,Thompson,samantha67@sherman.com,502.747.7592x1491,"5143 Caitlin Roads Suite 838, Huynhstad, CT 09323",1991-09-09
+96,Donald,Peters,angela34@hotmail.com,001-066-476-8303x79067,"477 Susan Spur, Port Christinaport, OR 32308",1997-06-17
+97,Ashley,Conner,lwilcox@yahoo.com,+1-596-583-5457,"441 Wilson Skyway, Port Kimberly, VA 70195",1968-04-10
+98,Mitchell,Casey,martinlawrence@garrison.com,535.124.2369x86294,"959 Sean Mission, Lake Elizabeth, TX 06812",1981-08-23
+99,Johnathan,Luna,ronald67@garcia-decker.com,691-141-1642x6752,"3043 Joseph Estate Apt. 692, Richardborough, KS 74451",1993-05-14
+100,Douglas,Arnold,emiller@hotmail.com,674.807.9691x88398,"7691 Wilson Shoals Apt. 840, Lake Paul, MI 22750",1994-06-15
+101,Cassandra,Johnson,vdavis@moore.org,286.312.4894x1519,"6892 Jane Forges, Burnsside, MN 35515",1983-03-15
+102,Evelyn,Acevedo,dixondanielle@gmail.com,303.200.7501x6049,"74684 Gilbert Glen, Bradleychester, NV 40972",1984-03-27
+103,Adam,Cook,rebecca74@moore.com,+1-343-103-1614x6961,"8913 John Crossing Suite 616, Port Megantown, MD 04364",1934-08-16
+104,Renee,Lowery,oserrano@martinez.com,001-882-707-5313x000,"0244 Nelson Stream, Reevesfort, AZ 49469",1957-12-26
+105,Kyle,Mitchell,smithjeremy@beck-mccoy.com,(580)881-0751x6148,"3599 Yang Prairie Suite 534, Port Sandyland, NM 60316",1983-09-23
+106,Laura,Foster,allison69@gmail.com,(033)884-0570x2618,"84311 Keith Burg Suite 676, Darrylburgh, AR 85782",1936-09-24
+107,Kimberly,Lee,jdoyle@gmail.com,952.138.4778,"90807 Patrick Knoll, New Tammieton, NY 81541",1942-06-10
+108,Clayton,Johnson,hwiggins@smith.net,473-765-7628,"62053 Freeman Island, East Matthew, IN 22676",1950-01-27
+109,David,Jimenez,tracy65@smith-nelson.info,185.486.1305x55641,"437 Thompson Knoll Suite 379, South Cathytown, SC 43464",1966-05-27
+110,Brandi,Farmer,burkejohnathan@hotmail.com,001-955-615-2480x53601,"12053 Leblanc Lodge, Martinchester, AL 19945",1961-11-03
+111,Nathan,Graves,gilledward@gmail.com,652-080-0492x2476,"3835 Huber Plains Suite 430, Port Marissaton, NC 67884",1996-07-09
+112,Sheryl,Medina,kmartinez@hotmail.com,(737)678-1291,"Unit 3218 Box 2138, DPO AA 38982",1998-11-16
+113,Nicole,Barker,michaelswanson@robinson-wright.net,632.984.2143x1429,"658 Gross Burg Apt. 822, New Jasonton, UT 39407",1956-11-13
+114,Amy,Johnson,alexmiddleton@gmail.com,(388)229-8057,"167 Jessica Summit, New Brianberg, MT 04680",1987-11-18
+115,Robert,Kelly,lauralewis@yahoo.com,001-989-763-6380x26724,"22878 Yates Union Apt. 186, North Brian, NJ 57694",1950-10-19
+116,Samuel,Gutierrez,kgarcia@harvey.com,598-601-3302,"74853 Smith Court, Hernandezborough, CT 96893",1979-11-02
+117,William,Murray,angela69@hotmail.com,(387)222-1464x206,"45465 Allen Cove, Jamesland, AR 24421",1967-01-19
+118,Bobby,Mathews,melissajohnson@hotmail.com,+1-410-783-1355,"7407 Tony Club Apt. 367, Lake Grantmouth, CA 13784",1987-10-16
+119,Kathleen,Porter,lisaharris@hotmail.com,045-418-0282x573,"858 Gonzalez Extension Apt. 432, Williamsport, ME 79353",1947-09-18
+120,Sandra,Parker,dtorres@hotmail.com,(744)744-6279x605,"640 Crawford Streets Suite 429, North Heathertown, AR 61408",1994-08-15
+121,Mary,Miller,blowery@yahoo.com,+1-011-097-5561x098,"648 Dunn Point Apt. 379, Kathrynborough, NJ 04627",1992-03-07
+122,Aaron,Jimenez,simpsondonna@yahoo.com,001-123-983-6844x8530,"5724 Rebecca Road Suite 612, West Jefferychester, HI 90317",1999-06-07
+123,Jeremy,Moore,glenda86@rodriguez.biz,665.682.5285,"856 Stevenson Cove Apt. 161, Port Hannahside, KS 08149",1963-01-05
+124,Katherine,Mayo,cbradford@cooper-campbell.org,+1-218-121-7865x0165,"6517 Leslie Walks, South Jessica, WI 10962",1977-03-10
+125,Julie,Pope,abbottjacqueline@lester.org,+1-478-802-1475x715,"Unit 5816 Box 7968, DPO AP 31021",1980-09-10
+126,Edward,Carroll,janet09@hotmail.com,(774)569-9987,"Unit 0310 Box 2179, DPO AP 66885",1998-08-15
+127,Kayla,Williams,smithrobert@gmail.com,(282)953-9246,"462 Black Drive, Rebeccaport, UT 37705",1953-10-11
+128,Todd,Green,sarahnewman@parker.biz,+1-082-308-8613,"1648 Morrow Neck Suite 272, West Christopher, SC 21910",1973-09-14
+129,John,Bradley,ledwards@yahoo.com,299-493-3675x4063,"3555 Mitchell Road, West James, DC 97809",1952-12-01
+130,Sara,Hall,susan66@richards.net,+1-696-498-1362x7183,"71490 Mary Hollow Apt. 811, South Michael, CT 49560",1995-12-29
+131,Brooke,Mitchell,mercernichole@gmail.com,001-188-760-3966x799,"349 Cole Gateway, South Patriciaborough, MD 85669",1996-10-28
+132,Larry,Hayes,leonard85@yahoo.com,(098)095-2171,"9888 Hill Meadows Suite 074, Jacquelinemouth, VA 59725",1935-12-15
+133,Michael,Smith,sandra32@yahoo.com,001-296-483-9146x6411,"613 Pamela Mission Apt. 741, West Michellefurt, WY 58464",1969-05-07
+134,Leonard,Clark,kristy15@caldwell-forbes.com,001-438-115-7508x1899,"Unit 5964 Box 0358, DPO AE 78153",1992-06-02
+135,Regina,Hunt,raymondwalker@cain.com,224-567-2063x9599,"11364 Nathan Square Apt. 987, Katieville, WV 65026",1939-11-25
+136,Jody,Lewis,emiller@yahoo.com,890.534.4889,"1284 Mooney Islands, New Alison, AK 24893",1967-06-06
+137,Sophia,Jones,peter09@gmail.com,494.340.2348,"USNV Wade, FPO AP 59846",1934-08-25
+138,Daniel,Anderson,joshua89@gmail.com,684.431.6057,"0508 Mary Rapids, West Sonia, KY 66976",1973-06-01
+139,Ashley,Wagner,nancytaylor@yahoo.com,+1-506-062-8531,"157 Nichole Lights Suite 955, East Tinamouth, MD 98783",1987-11-10
+140,Jamie,Boone,heatherpatterson@myers.com,001-031-948-1066x625,"72614 Wanda Park, West Willie, HI 21057",1955-04-26
+141,Adam,Scott,odonnelllisa@leon.info,8882259659,"839 Parker Mountains Suite 219, South Malloryview, FL 58357",1937-07-12
+142,Chad,Miller,swolf@bell.com,320-953-0757x59797,"85144 Gilmore Freeway Suite 803, South Kyle, UT 13784",1951-10-21
+143,Laura,Li,alan27@poole-ramirez.net,+1-894-623-8870x69473,"6270 Simmons Glens Apt. 780, South Mark, AK 29151",1981-10-23
+144,Francisco,Mckenzie,darryltyler@miller.com,(163)274-1390,"543 Zachary Cape Apt. 650, Mccormickberg, MD 90227",1987-11-13
+145,Daniel,Clements,awoods@gmail.com,8698360742,"078 Andrew Heights, Lisabury, IA 67952",1955-01-14
+146,Ariana,Ruiz,steve51@perez.com,569-991-1848x67468,"USCGC Mcgee, FPO AA 36007",1939-10-18
+147,Stacie,Castro,jensenkatrina@wells.com,001-712-463-0539x0679,"182 Barnes Hill, North Michael, IL 52671",1968-01-12
+148,Kristen,Collier,stephanielogan@hotmail.com,131.258.5915x41153,"51302 Lynn Branch, East Stephanie, SD 04953",1935-08-12
+149,Kimberly,Green,wwilson@hotmail.com,(023)563-1585x993,"13822 Juan Mews, New Elizabethmouth, NJ 46295",2005-07-24
+150,Melvin,Wagner,edwardmatthews@hotmail.com,183-123-2118x4128,"6220 David Bypass, Port Cassandra, MT 61468",1985-07-23
