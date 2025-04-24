@@ -167,13 +167,13 @@ def customer_cust_menu(cust_user):
 
 def customer_accounts_menu (cust_user):
     print("Accounts :")
-    cust_id = cur.execute("SELECT customer_id FROM users WHERE username = ?;", (cust_user,)).fetchone()[0]
-    cur.execute("SELECT account_type, balance, opened_on FROM accounts WHERE customer_id = ? ORDER BY posted_date ASC;", (cust_id,))
+    cust_id = cur.execute("SELECT customer_id FROM customers WHERE username = ?;", (cust_user,)).fetchone()[0]
+    cur.execute("SELECT account_id, account_type, balance, opened_on FROM accounts WHERE customer_id = ? ORDER BY posted_date ASC;", (cust_id,))
 
     results = cur.fetchall()
     if results:
         for row in results:
-            print(f"Account Type: {row[0]}, Current Balance: {row[1]}, Created on: {row[2]}")
+            print(f"Account ID: {row[0]} Account Type: {row[1]}, Current Balance: {row[2]}, Created on: {row[3]}")
     else:
         print("Error fetching data")
 
@@ -193,15 +193,52 @@ def customer_accounts_menu (cust_user):
                 print("a. Deposit into an account")
                 print("b. Withdraw from an account")
                 print("c. Add or Delete an account")
-            new_post_content = input("Type new post: ")
 
-            user_id = cur.execute("SELECT user_id FROM users WHERE username = ?;", (cust_user,)).fetchone()[0]
-            posted_date = datetime.now().strftime("%m/%d/%Y")
+                account_choice = input("Enter your choice (a, b, or c): ")
 
-            cur.execute("""INSERT INTO posts (user_id, post, posted_date)
-                        VALUES(?,?,?)
-                        """, (user_id, new_post_content, posted_date))
-            con.commit()
+                if account_choice == 'a':
+
+                    account_to_deposit = input("Which Account ID would you like to deposit into? : ")
+                    deposit_amount = input("How much would you like to deposit? : ")
+                    cur.execute("""UPDATE customers
+                                SET balance = balace + ?
+                                WHERE account_id = ?;
+                                """, (deposit_amount, account_to_deposit))
+                    con.commit()
+                    customer_accounts_menu(cust_user)
+
+                elif account_choice == 'b':
+
+                    account_to_withdraw = input("Which Account ID would you like to withdraw from? : ")
+                    withdraw_amount = input("How much would you like to withdraw? : ")
+                    cur.execute("""UPDATE customers
+                                SET balance = balace - ?
+                                WHERE account_id = ?;
+                                """, (withdraw_amount, account_to_deposit))
+                    con.commit()
+                    customer_accounts_menu(cust_user)
+
+                elif account_choice == 'c':
+                    print("Would you like to Add or delete an account")
+                    print("1. Add account 2. Delete account")
+                    delete_or_add = input("Enter your choice (1 or 2): ")
+                    
+                    if delete_or_add == 1:
+                        print("What type of account would you like to create")
+                        type_of_acc = input("Please enter 'Savings' or 'Checking': ")
+                        opened_date = datetime.now().strftime("%m/%d/%Y")
+                        id_to_create = cur.execute("SELECT max(account_id) FROM accounts")
+                        cur.execute("INSERT INTO accounts (account_id, customer_id, account_type, balance, opened_on) VALUES (?,?,?,0,?)", (id_to_create, cust_user,type_of_acc, opened_date))
+                        con.commit()
+                    elif delete_or_add == 2:
+                        acct_to_del = input("Which account Id?: ")
+                        cur.execute("""DELETE FROM customers
+                                    WHERE account_id = ?;
+                                    """, (acct_to_del))
+                        con.commit()
+                    customer_accounts_menu(cust_user)
+                else:
+                    print("Invalid input. Please enter a,b, or c: ")
         else:
             print("Invalid input. Please choose a or b")
 def customer_loan_menu(cust_user):
