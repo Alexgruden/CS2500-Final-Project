@@ -3,6 +3,7 @@ import csv
 import sqlite3
 import sys
 import pwinput
+import datetime
 
 
 con = sqlite3.connect('bank_sim.db')
@@ -131,7 +132,7 @@ def admin_accounts_menu (admin_user):
 def admin_loan_menu(admin_user):
 
 def customer_cust_menu(cust_user):
-    cur.execute("SELECT first_name, last_name, email, phone_number, address, date_of_birth FROM customers WHERE username = ?;", (username,))
+    cur.execute("SELECT first_name, last_name, email, phone_number, address, date_of_birth FROM customers WHERE username = ?;", (cust_user,))
     result = cur.fetchone()
     if result:
         first_name, last_name, email, phone_number, address, date_of_birth = result
@@ -150,21 +151,57 @@ def customer_cust_menu(cust_user):
         if choice == 'a':
             main_menu(cust_user)
         elif choice == 'b':
-            #TODO add corrected code below
-            print("\nAvailable Columns: \nemail_id \npassword \nfirst_name \nlast_name \nbirth_date")
+            print("\nAvailable Columns: \nemail \npassword \nfirst_name \nlast_name \ndate_of_birth")
             column_to_edit = input("Which column would you like to edit? ")
             change_to_column = input(f"What would you like to change {column_to_edit} to? ")
 
-            columnsData = cur.execute("PRAGMA table_info(users)").fetchall()
+            columnsData = cur.execute("PRAGMA table_info(customers)").fetchall()
             column_names = [col[1] for col in columnsData]
             if column_to_edit in column_names:
                     query = f"UPDATE users SET {column_to_edit} = ? WHERE username = ?"
-                    cur.execute(query, (change_to_column, find_username))
+                    cur.execute(query, (change_to_column, cust_user))
                     con.commit()
 
         else:
             print("Invalid input. Please choose a or b")
 
 def customer_accounts_menu (cust_user):
+    print("Accounts :")
+    cust_id = cur.execute("SELECT customer_id FROM users WHERE username = ?;", (cust_user,)).fetchone()[0]
+    cur.execute("SELECT account_type, balance, opened_on FROM accounts WHERE customer_id = ? ORDER BY posted_date ASC;", (cust_id,))
 
+    results = cur.fetchall()
+    if results:
+        for row in results:
+            print(f"Account Type: {row[0]}, Current Balance: {row[1]}, Created on: {row[2]}")
+    else:
+        print("Error fetching data")
+
+
+    while True:
+        print("\nChoose an option:")
+        print("a. Go back")
+        print("b. Account options")
+
+        choice = input("Enter your choice (a or b): ")
+
+        if choice == 'a':
+            main_menu(cust_user)
+        elif choice == 'b':
+            while True:
+                print("\nAccount Options:")
+                print("a. Deposit into an account")
+                print("b. Withdraw from an account")
+                print("c. Add or Delete an account")
+            new_post_content = input("Type new post: ")
+
+            user_id = cur.execute("SELECT user_id FROM users WHERE username = ?;", (cust_user,)).fetchone()[0]
+            posted_date = datetime.now().strftime("%m/%d/%Y")
+
+            cur.execute("""INSERT INTO posts (user_id, post, posted_date)
+                        VALUES(?,?,?)
+                        """, (user_id, new_post_content, posted_date))
+            con.commit()
+        else:
+            print("Invalid input. Please choose a or b")
 def customer_loan_menu(cust_user):
