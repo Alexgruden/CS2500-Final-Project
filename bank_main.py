@@ -4,6 +4,7 @@ import sqlite3
 import sys
 import pwinput
 import datetime
+import matplotlib as plt
 
 
 con = sqlite3.connect('bank_sim.db')
@@ -19,7 +20,7 @@ Returns:
     str username: Returns the usename of the logged in user 
 """
 def login_check():
-    print("Welcome to Mini Bank ATM")
+    print("Welcome to Mini Bank Menu")
     while True:
         username = input("Username: ")
         password = pwinput.pwinput(prompt='Password: ')
@@ -35,35 +36,6 @@ def login_check():
 
 
 
-
-
-
-"""
-Description:
-When enabled, it will drop all current tables in the database and wipe what is in it.
-Then it will recreate the tables as they were orgininally intended to be if needed.
-
-Parameters:
-input (boolean) : T/F Depending on if a fresh version of the database needs to be created
-"""
-def load_data(input):
-    if input == True:
-        #remove table during subsequent runs
-        cur.execute("DROP TABLE IF EXISTS customers;")
-        cur.execute("DROP TABLE IF EXISTS accounts;")
-        cur.execute("DROP TABLE IF EXISTS loans;")
-
-        #load each csv into a data frame
-        customers = pd.read_csv("customers.csv")
-        accounts = pd.read_csv("accounts.csv")
-        loans = pd.read_csv("loans.csv")
-
-        #insert each csv into a table in the database 
-        customers.to_sql('customers', con, if_exists='replace', index = False)
-        accounts.to_sql('accounts', con, if_exists='replace', index = False)
-        loans.to_sql('loans', con, if_exists='replace', index = False)
-
-        con.commit()
 
 
 """
@@ -169,10 +141,60 @@ def admin_stats_menu(admin_user):
         if choice == 'a':
             main_menu(admin_user)
 
-
-
-
 def admin_graph_menu (admin_user):
+    while True:
+        print("\nGraph Options:")
+        print("1. Bar chart of total balance per customer")
+        print("2. Pie chart of loan distribution by type")
+        print("3. Go back")
+
+        choice = input("Enter your choice (1, 2, or 3): ")
+
+        if choice == '1':
+            cur.execute("""
+                SELECT c.first_name || ' ' || c.last_name AS name, SUM(a.balance)
+                FROM accounts a
+                JOIN customers c ON a.customer_id = c.customer_id
+                GROUP BY c.customer_id
+            """)
+
+            data = cur.fetchall()
+            if data:
+                names = [row[0] for row in data]
+                balances = [row[1] for row in data]
+                plt.figure(figsize=(10, 5))
+                plt.bar(names, balances, color='skyblue')
+                plt.title("Total Balance per Customer")
+                plt.xticks(rotation=45, ha='right')
+                plt.ylabel("Balance ($)")
+                plt.tight_layout()
+                plt.show()
+            else:
+                print("Error")
+
+        elif choice == '2':
+            cur.execute("SELECT loan_type, COUNT(*) FROM loans GROUP BY loan_type")
+
+            data = cur.fetchall()
+            if data:
+                types = [row[0] for row in data]
+                counts = [row[1] for row in data]
+
+                plt.figure(figsize=(6, 6))
+                plt.pie(counts, labels=types, autopct='%1.1f%%')
+                plt.title("Loan Type Distribution")
+                plt.axis('equal')
+                plt.tight_layout()
+                plt.show()
+            else:
+                print("Error")
+
+        elif choice == '3':
+            main_menu(admin_user)
+        else:
+            print("Invalid input. Please choose 1, 2, or 3")
+
+
 
 def customer_cust_menu(cust_user):
     cur.execute("SELECT first_name, last_name, email, phone_number, address, date_of_birth FROM customers WHERE username = ?;", (cust_user,))
