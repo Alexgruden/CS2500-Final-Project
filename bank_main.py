@@ -30,7 +30,6 @@ def login_check():
             if find_password:
                 print("successful login")
                 return username
-                main_menu(username)
             else:
                 print("Access denied")
 
@@ -65,7 +64,6 @@ def load_data(input):
         loans.to_sql('loans', con, if_exists='replace', index = False)
 
         con.commit()
-        con.close()
 
 
 """
@@ -84,10 +82,9 @@ def main_menu(username):
     if username == "adminuser":
         while True:
             print("\nAdmin Menu:")
-            print("a. Customers menu")
-            print("b. Accounts menu")
-            print("c. Loans menu")
-            print("d. Logout")
+            print("a. Stats menu")
+            print("b. Graph information")
+            print("c. Logout")
 
             choice = input("Enter your choice (a,b,c, or d): ")
 
@@ -96,9 +93,8 @@ def main_menu(username):
             elif choice == 'b':
                 print("You selected Option 2")
             elif choice == 'c':
-                print("You selected Option 3")
-            elif choice == 'd':
                 print("Exiting...")
+                con.close()
                 sys.exit()
             else:
                 print("Invalid input. Please enter a,b,c, or d: ")
@@ -114,22 +110,69 @@ def main_menu(username):
 
             if choice == 'a':
                 print("You selected Option 1")
+                customer_cust_menu(username)
             elif choice == 'b':
                 print("You selected Option 2")
+                customer_accounts_menu(username)
             elif choice == 'c':
                 print("You selected Option 3")
+                customer_loan_menu(username)
             elif choice == 'd':
                 print("Exiting...")
+                con.close()
                 sys.exit()
             else:
                 print("Invalid input. Please enter a,b,c, or d: ")
 
 
-def admin_cust_menu(admin_user):
+def admin_stats_menu(admin_user):
 
-def admin_accounts_menu (admin_user):
+    cur.execute("""
+                SELECT c.first_name, c.last_name, a.balance
+                FROM accounts a
+                JOIN customers c ON a.customer_id = c.customer_id
+                WHERE a.balance = (SELECT MIN(balance) FROM accounts);
+                """)
+    result = cur.fetchone()
+    if result:
+        first_name, last_name, balance = result
+        print("Customer with the lowest balance")
+        print(f"First Name: {first_name} Last Name: {last_name} Balance: {balance}")
+    else:
+        print("Error fetching data")
 
-def admin_loan_menu(admin_user):
+    cur.execute("""
+                SELECT c.first_name, c.last_name, a.balance
+                FROM accounts a
+                JOIN customers c ON a.customer_id = c.customer_id
+                WHERE a.balance = (SELECT MAX(balance) FROM accounts);
+                """)
+    result = cur.fetchone()
+    if result:
+        first_name, last_name, balance = result
+        print("Customer with the Highest balance")
+        print(f"First Name: {first_name} Last Name: {last_name} Balance: {balance}")
+    else:
+        print("Error fetching data")
+
+    cur.execute("SELECT AVG(amount) AS mean_amount FROM loans;")
+    result = cur.fetchone()
+    print(f"Average Balance: {result[0]:,.2f}")
+
+
+    while True:
+        print("\nChoose an option:")
+        print("a. Go back")
+
+        choice = input("Enter your choice (a): ")
+
+        if choice == 'a':
+            main_menu(admin_user)
+
+
+
+
+def admin_graph_menu (admin_user):
 
 def customer_cust_menu(cust_user):
     cur.execute("SELECT first_name, last_name, email, phone_number, address, date_of_birth FROM customers WHERE username = ?;", (cust_user,))
@@ -200,8 +243,8 @@ def customer_accounts_menu (cust_user):
 
                     account_to_deposit = input("Which Account ID would you like to deposit into? : ")
                     deposit_amount = input("How much would you like to deposit? : ")
-                    cur.execute("""UPDATE customers
-                                SET balance = balace + ?
+                    cur.execute("""UPDATE acccounts
+                                SET balance = balance + ?
                                 WHERE account_id = ?;
                                 """, (deposit_amount, account_to_deposit))
                     con.commit()
@@ -211,8 +254,8 @@ def customer_accounts_menu (cust_user):
 
                     account_to_withdraw = input("Which Account ID would you like to withdraw from? : ")
                     withdraw_amount = input("How much would you like to withdraw? : ")
-                    cur.execute("""UPDATE customers
-                                SET balance = balace - ?
+                    cur.execute("""UPDATE accounts
+                                SET balance = balance - ?
                                 WHERE account_id = ?;
                                 """, (withdraw_amount, account_to_deposit))
                     con.commit()
@@ -223,22 +266,45 @@ def customer_accounts_menu (cust_user):
                     print("1. Add account 2. Delete account")
                     delete_or_add = input("Enter your choice (1 or 2): ")
                     
-                    if delete_or_add == 1:
+                    if delete_or_add == '1':
                         print("What type of account would you like to create")
                         type_of_acc = input("Please enter 'Savings' or 'Checking': ")
                         opened_date = datetime.now().strftime("%m/%d/%Y")
-                        id_to_create = cur.execute("SELECT max(account_id) FROM accounts")
+                        id_to_create = cur.execute("SELECT max(account_id) FROM accounts").fetchone()[0] + 1
                         cur.execute("INSERT INTO accounts (account_id, customer_id, account_type, balance, opened_on) VALUES (?,?,?,0,?)", (id_to_create, cust_user,type_of_acc, opened_date))
                         con.commit()
-                    elif delete_or_add == 2:
+                    elif delete_or_add == '2':
                         acct_to_del = input("Which account Id?: ")
-                        cur.execute("""DELETE FROM customers
-                                    WHERE account_id = ?;
-                                    """, (acct_to_del))
+                        cur.execute("DELETE FROM accounts WHERE account_id = ?;", (acct_to_del,))
                         con.commit()
                     customer_accounts_menu(cust_user)
                 else:
                     print("Invalid input. Please enter a,b, or c: ")
         else:
             print("Invalid input. Please choose a or b")
+
+
+
 def customer_loan_menu(cust_user):
+    print("Current Loans: ")
+    cust_id = cur.execute("SELECT customer_id FROM customers WHERE username = ?;", (cust_user,)).fetchone()[0]
+    cur.execute("SELECT loan_id, loan_type, principal_amount, interest_rate, start_date, end_date, status FROM loans WHERE customer_id = ? ORDER BY posted_date ASC;", (cust_id,))
+
+    results = cur.fetchall()
+    if results:
+        for row in results:
+            print(f"Loan ID: {row[0]} Loan Type: {row[1]}, Principal Amonunt: {row[2]}, Interest Rate: {row[3]}")
+            print(f"Created on: {row[4]}, Ends on: {row[5]}, Status of loan: {row[6]}")
+    else:
+        print("Error fetching data")
+
+    while True:
+        print("\nChoose an option:")
+        print("a. Go back")
+
+        choice = input("Enter your choice (a or b): ")
+
+        if choice == 'a':
+            main_menu(cust_user)
+        else:
+            print("Invalid input. Please choose a or b")
