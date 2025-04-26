@@ -4,7 +4,7 @@ import sqlite3
 import sys
 import pwinput
 import datetime
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 
 con = sqlite3.connect('bank_sim.db')
@@ -27,7 +27,7 @@ def login_check():
 
         find_username = cur.execute("SELECT username FROM customers WHERE username = ?", (username,)).fetchone()
         if find_username:
-            find_password = cur.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password)).fetchone()
+            find_password = cur.execute("SELECT * FROM customers WHERE username = ? AND password = ?", (username, password)).fetchone()
             if find_password:
                 print("successful login")
                 return username
@@ -62,8 +62,10 @@ def main_menu(username):
 
             if choice == 'a':
                 print("You selected Option 1")
+                admin_stats_menu(username)
             elif choice == 'b':
                 print("You selected Option 2")
+                admin_graph_menu(username)
             elif choice == 'c':
                 print("Exiting...")
                 con.close()
@@ -108,7 +110,7 @@ def admin_stats_menu(admin_user):
     result = cur.fetchone()
     if result:
         first_name, last_name, balance = result
-        print("Customer with the lowest balance")
+        print("\n\nCustomer with the lowest balance:")
         print(f"First Name: {first_name} Last Name: {last_name} Balance: {balance}")
     else:
         print("Error fetching data")
@@ -122,14 +124,14 @@ def admin_stats_menu(admin_user):
     result = cur.fetchone()
     if result:
         first_name, last_name, balance = result
-        print("Customer with the Highest balance")
-        print(f"First Name: {first_name} Last Name: {last_name} Balance: {balance}")
+        print("\nCustomer with the Highest balance:")
+        print(f"First Name: {first_name}, Last Name: {last_name}, Balance: {balance}")
     else:
         print("Error fetching data")
 
-    cur.execute("SELECT AVG(amount) AS mean_amount FROM loans;")
+    cur.execute("SELECT AVG(balance) AS mean_amount FROM accounts;")
     result = cur.fetchone()
-    print(f"Average Balance: {result[0]:,.2f}")
+    print(f"\nAverage Balance: {result[0]:,.2f}")
 
 
     while True:
@@ -162,7 +164,7 @@ def admin_graph_menu (admin_user):
             if data:
                 names = [row[0] for row in data]
                 balances = [row[1] for row in data]
-                plt.figure(figsize=(10, 5))
+                plt.figure(figsize=(12, 5))
                 plt.bar(names, balances, color='skyblue')
                 plt.title("Total Balance per Customer")
                 plt.xticks(rotation=45, ha='right')
@@ -197,6 +199,7 @@ def admin_graph_menu (admin_user):
 
 
 def customer_cust_menu(cust_user):
+    print("\n\nCustomer Information:")
     cur.execute("SELECT first_name, last_name, email, phone_number, address, date_of_birth FROM customers WHERE username = ?;", (cust_user,))
     result = cur.fetchone()
     if result:
@@ -223,7 +226,7 @@ def customer_cust_menu(cust_user):
             columnsData = cur.execute("PRAGMA table_info(customers)").fetchall()
             column_names = [col[1] for col in columnsData]
             if column_to_edit in column_names:
-                    query = f"UPDATE users SET {column_to_edit} = ? WHERE username = ?"
+                    query = f"UPDATE customers SET {column_to_edit} = ? WHERE username = ?"
                     cur.execute(query, (change_to_column, cust_user))
                     con.commit()
 
@@ -231,9 +234,9 @@ def customer_cust_menu(cust_user):
             print("Invalid input. Please choose a or b")
 
 def customer_accounts_menu (cust_user):
-    print("Accounts :")
+    print("\n\nAccounts :")
     cust_id = cur.execute("SELECT customer_id FROM customers WHERE username = ?;", (cust_user,)).fetchone()[0]
-    cur.execute("SELECT account_id, account_type, balance, opened_on FROM accounts WHERE customer_id = ? ORDER BY posted_date ASC;", (cust_id,))
+    cur.execute("SELECT account_id, account_type, balance, opened_on FROM accounts WHERE customer_id = ? ORDER BY balance DESC;", (cust_id,))
 
     results = cur.fetchall()
     if results:
@@ -265,7 +268,7 @@ def customer_accounts_menu (cust_user):
 
                     account_to_deposit = input("Which Account ID would you like to deposit into? : ")
                     deposit_amount = input("How much would you like to deposit? : ")
-                    cur.execute("""UPDATE acccounts
+                    cur.execute("""UPDATE accounts
                                 SET balance = balance + ?
                                 WHERE account_id = ?;
                                 """, (deposit_amount, account_to_deposit))
@@ -279,21 +282,21 @@ def customer_accounts_menu (cust_user):
                     cur.execute("""UPDATE accounts
                                 SET balance = balance - ?
                                 WHERE account_id = ?;
-                                """, (withdraw_amount, account_to_deposit))
+                                """, (withdraw_amount, account_to_withdraw))
                     con.commit()
                     customer_accounts_menu(cust_user)
 
                 elif account_choice == 'c':
-                    print("Would you like to Add or delete an account")
+                    print("\nWould you like to Add or delete an account")
                     print("1. Add account 2. Delete account")
                     delete_or_add = input("Enter your choice (1 or 2): ")
                     
                     if delete_or_add == '1':
                         print("What type of account would you like to create")
                         type_of_acc = input("Please enter 'Savings' or 'Checking': ")
-                        opened_date = datetime.now().strftime("%m/%d/%Y")
+                        opened_date = datetime.datetime.now().strftime("%m/%d/%Y")
                         id_to_create = cur.execute("SELECT max(account_id) FROM accounts").fetchone()[0] + 1
-                        cur.execute("INSERT INTO accounts (account_id, customer_id, account_type, balance, opened_on) VALUES (?,?,?,0,?)", (id_to_create, cust_user,type_of_acc, opened_date))
+                        cur.execute("INSERT INTO accounts (account_id, customer_id, account_type, balance, opened_on) VALUES (?,?,?,0,?)", (id_to_create, cust_id,type_of_acc, opened_date))
                         con.commit()
                     elif delete_or_add == '2':
                         acct_to_del = input("Which account Id?: ")
@@ -308,9 +311,10 @@ def customer_accounts_menu (cust_user):
 
 
 def customer_loan_menu(cust_user):
-    print("Current Loans: ")
+    print("\n\nCurrent Loans: ")
     cust_id = cur.execute("SELECT customer_id FROM customers WHERE username = ?;", (cust_user,)).fetchone()[0]
-    cur.execute("SELECT loan_id, loan_type, principal_amount, interest_rate, start_date, end_date, status FROM loans WHERE customer_id = ? ORDER BY posted_date ASC;", (cust_id,))
+    cur.execute("""SELECT loan_id, loan_type, principal_amount, interest_rate, start_date, end_date, status 
+                FROM loans WHERE customer_id = ? ORDER BY principal_amount DESC;""", (cust_id,))
 
     results = cur.fetchall()
     if results:
@@ -324,9 +328,13 @@ def customer_loan_menu(cust_user):
         print("\nChoose an option:")
         print("a. Go back")
 
-        choice = input("Enter your choice (a or b): ")
+        choice = input("Enter your choice (a): ")
 
         if choice == 'a':
             main_menu(cust_user)
         else:
             print("Invalid input. Please choose a or b")
+
+if __name__ == "__main__":
+    main_menu(login_check())
+    
